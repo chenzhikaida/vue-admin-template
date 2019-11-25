@@ -36,7 +36,9 @@ export default {
       const param = {
         'sessionId': '4670759350771712'
       }
-      searchMMSRSessionByRedis(param, this)
+      searchMMSRSessionByRedis().then( ( response ) =>{
+        console.log(response)
+      })
       console.log(this.$data.mmsrSession)
       // this.data.mmsrSession = sessionMap.mmsrSession
       // alert(sessionMap)

@@ -25,14 +25,16 @@ export function hello(params) {
  */
 export function searchMMSRSessionByRedis(params,vue) {
   console.log(params)
-  axios.post('http://localhost:8082/mmsr/searchSessionByRedis',
+  return axios.post('http://localhost:8082/mmsr/searchSessionByRedis',
     { 'sessionId': '4670759350771712' })
     .then(function(response) {
       console.log(response)
       vue.$data.mmsrSession = response
+      return response
     })
     .catch(function(error) {
-      console.log(error.data)
+      // console.log(error.data)
+      return error || '系统繁忙'
     })
 }
 axios.interceptors.response.use(function(response) {
